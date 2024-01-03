@@ -1,0 +1,6 @@
+#!/bin/bash
+# Using the cut command to extract the required fields from /etc/passwd
+cut -d: -f1,3,6 /etc/passwd |
+while IFS=: read -r username user_id home_directory; do
+    echo "$username:$user_id:$home_directory"
+done
