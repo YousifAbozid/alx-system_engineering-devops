@@ -8,14 +8,14 @@ def number_of_subscribers(subreddit):
     if subreddit is None or not isinstance(subreddit, str):
         return 0
 
-    headers = {"User-Agent": "youBot/1.0"}
-    URL = f"https://www.reddit.com/r/{subreddit}/about.json"
+    headers = {'User-Agent': 'selBot/1.0'}
+    URL = f'https://www.reddit.com/r/{subreddit}/about.json'
 
     try:
         response = requests.get(URL, headers=headers, allow_redirects=False)
         response.raise_for_status()
         data = response.json()
-        subscribers = data["data"]["subscribers"]
+        subscribers = data['data']['subscribers']
         return subscribers
 
     except requests.exceptions.RequestException:

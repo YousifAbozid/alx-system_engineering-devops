@@ -9,21 +9,21 @@ def top_ten(subreddit):
         print(None)
         return
 
-    headers = {"User-Agent": "youBot/2.0"}
-    URL = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
+    headers = {'User-Agent': 'selBot/2.0'}
+    URL = f'https://www.reddit.com/r/{subreddit}/hot.json?limit=10'
 
     try:
         response = requests.get(URL, headers=headers, allow_redirects=False)
         response.raise_for_status()
         data = response.json()
-        posts = data["data"]["children"]
+        posts = data['data']['children']
 
         if not posts:
             print("None")
 
         else:
             for post in posts:
-                title = post["data"]["title"]
+                title = post['data']['title']
                 print(title)
 
     except requests.exceptions.RequestException:
